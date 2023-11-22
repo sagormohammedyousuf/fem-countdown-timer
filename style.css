@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --Grayish-blue: hsl(237, 18%, 59%);
+  --Soft-red: hsl(345, 95%, 68%);
+
+  /* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+  --Dark-desaturated-blue: #34364f;
+  --Very-dark-blue: hsl(235, 16%, 14%);
+  --mostly-black-blue: hsl(234, 17%, 12%);
+
+  --app-bg: #1e1e28;
+  --timer-bg-25: #201e29;
+  --timer-bg-50: #211d2b;
+  --timer-bg-75: #231d2b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 15px;
+}
+
+.app {
+  width: 100%;
+  height: 98dvh;
+  background: var(--app-bg);
+
+  @media (max-width: 800px) {
+    padding: 1rem;
+  }
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78%;
+  background-image: url("images/bg-stars.svg");
+  background-size: cover;
+  z-index: 9;
+}
+
+.timer {
+  width: 100%;
+  height: 85dvh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--timer-bg-25) 0%,
+    var(--timer-bg-50) 50%,
+    var(--timer-bg-75) 70%
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-image: url("images/pattern-hills.svg");
+  background-size: cover;
+  z-index: 99;
+}
+
+@media (max-width: 800px) {
+  .timer::before {
+    height: 17%;
+  }
+}
+
+.announce {
+  font-size: 1.7em;
+  text-transform: uppercase;
+  color: var(--White);
+  letter-spacing: 7px;
+  word-spacing: 7px;
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+
+  @media (max-width: 800px) {
+    text-align: center;
+    font-size: 1.4;
+    letter-spacing: 5px;
+  }
+}
+
+.show-time {
+  width: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.show-time div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-time p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--Grayish-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+
+  @media (max-width: 800px) {
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+  }
+}
+
+.box {
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  /* background: var(--Dark-desaturated-blue); */
+  margin: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 9;
+  font-size: 6rem;
+  font-weight: 700;
+  /* color: var(--Soft-red); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 0 38px var(--mostly-black-blue), 0 12px var(--mostly-black-blue);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+
+  @media (max-width: 800px) {
+    width: 80px;
+    height: 80px;
+    margin: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  }
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: 50%;
+  background-image: url("images/card-top.svg");
+  background-size: 100% 100%;
+  z-index: 99;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 55%;
+  width: 100%;
+
+  background-image: url("images/card-bottom.svg");
+  /* background-size:100% 100%; */
+  background-size: cover 100%;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  z-index: 99;
+}
+
+.txt {
+  color: var(--Soft-red);
+  font-size: 6rem;
+  z-index: 999;
+
+  @media (max-width: 800px) {
+    font-size: 2rem;
+  }
+}
+
+.social {
+  position: absolute;
+  bottom: 8%;
+  z-index: 990;
+}
+
+.social-icon {
+  margin-inline: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.social-icon {
+  fill: var(--Soft-red);
+  font-size: 4rem;
+}
+
+.attribution {
+  display: none;
+}
